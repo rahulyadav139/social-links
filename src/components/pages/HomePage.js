@@ -1,8 +1,20 @@
 import styles from './HomePage.module.css';
+import { useNavigate } from 'react-router-dom';
+import { useRef } from 'react';
 
 import brandImage from '../../Assets/brand-logo-transparent.png';
 import { Link } from 'react-router-dom';
 const HomePage = props => {
+  const navigate = useNavigate();
+  const usernameRef = useRef();
+
+  const searchHandler = () => {
+    const username = usernameRef.current.value;
+
+    if (!username) return;
+
+    navigate(`/${username}`);
+  };
   return (
     <section className={styles.main}>
       <header className={styles.header}>
@@ -27,10 +39,10 @@ const HomePage = props => {
       </h1>
       <div className={styles.search}>
         <div>
-          <label>social.link /</label>
-          <input placeholder="username" type="text" />
+          <label>links /</label>
+          <input ref={usernameRef} placeholder="username" type="text" />
         </div>
-        <button>Search</button>
+        <button onClick={searchHandler}>search</button>
       </div>
     </section>
   );
