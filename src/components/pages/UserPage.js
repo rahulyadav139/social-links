@@ -29,8 +29,9 @@ const UserPage = props => {
           setIsUser(true);
           const matchedData = data[key];
 
-          if (!!matchedData.customLinks) {
-            let customLinksArray = [];
+          let customLinksArray = [];
+
+          if (matchedData.customLinks) {
             for (const key in matchedData.customLinks) {
               if (matchedData.customLinks[key]) {
                 customLinksArray.push({
@@ -39,12 +40,12 @@ const UserPage = props => {
                 });
               }
             }
-            setUserData({
-              name: matchedData.name,
-              quickLinks: matchedData.quickLinks,
-              customLinks: customLinksArray,
-            });
           }
+          setUserData({
+            name: matchedData.name,
+            quickLinks: matchedData.quickLinks,
+            customLinks: customLinksArray,
+          });
         }
       }
       setIsLoading(false);
