@@ -1,23 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import HomePage from './components/pages/HomePage';
+import SignIn from './components/pages/SignIn';
+import SignUp from './components/pages/SignUp';
+import UserPage from './components/pages/UserPage';
+import Admin from './components/pages/Admin';
+import NoUserFound from './components/pages/NoUserFound';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        {isLoggedIn && <Route path="/admin" element={<Admin />} />}
+        {!isLoggedIn && (
+          <Route
+            path="/admin"
+            element={<Navigate to="/" element={<HomePage />} />}
+          />
+        )}
+        <Route path="/:username" element={<UserPage />} />
+        <Route path="/no-user-found" element={<NoUserFound />} />
+        <Route path="*" element={<HomePage />} />
+      </Routes>
     </div>
   );
 }

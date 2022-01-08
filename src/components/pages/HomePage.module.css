@@ -1,0 +1,83 @@
+@import '../../index.css';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem 1rem;
+  border-radius: 2.5rem;
+  margin: 0.5rem;
+  border: 1.5px solid #bbe1fa;
+}
+
+.brand {
+  width: 80px;
+  height: 80px;
+}
+.brand img {
+  width: 100%;
+  height: 100%;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav ul Li {
+  font-size: 1.1rem;
+  color: #bbe1fa;
+  cursor: pointer;
+}
+
+.nav ul li:last-child {
+  background-color: #bbe1fa;
+  padding: 1rem;
+  color: #041c32;
+  border-radius: 1.5rem;
+}
+.main h1 {
+  text-align: center;
+  font-size: 5rem;
+  color: #bbe1fa;
+  margin-top: 5rem;
+}
+.search {
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: content-box;
+  margin-top: 2rem;
+
+  width: fit-content;
+  border: 2px solid #bbe1fa;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.search label {
+  font-size: 1.5rem;
+  color: #bbe1fa;
+
+  text-align: right;
+  padding: 0.5rem 1rem;
+}
+.search input {
+  font-size: 1.5rem;
+  outline: none;
+  padding: 0.5rem;
+  border: none;
+}
+.search button {
+  font-size: 1.5rem;
+  outline: none;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  background-color: #064663;
+  color: #bbe1fa;
+}

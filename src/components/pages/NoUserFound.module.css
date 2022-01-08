@@ -1,0 +1,12 @@
+.image {
+  width: 400px;
+
+  margin: 2rem auto;
+}
+.image img {
+  width: 100%;
+}
+.error h1 {
+  color: #bbe1fa;
+  text-align: center;
+}

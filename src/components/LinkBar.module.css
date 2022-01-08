@@ -1,0 +1,27 @@
+.row {
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #064663;
+  margin: 0.5rem auto;
+}
+.row h2 {
+  color: #bbe1fa;
+}
+.row button {
+  position: absolute;
+  right: 10px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 0.5rem;
+}
+.row svg {
+  fill: #bbe1fa;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}

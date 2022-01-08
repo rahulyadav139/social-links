@@ -1,0 +1,68 @@
+.interface {
+  display: flex;
+  height: 100vh;
+}
+
+.preview {
+  flex: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  width: 250px;
+  height: 500px;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.actions {
+  flex: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #064663;
+  border-radius: 1rem;
+}
+.header h2 {
+  color: #bbe1fa;
+}
+.header button {
+  outline: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #bbe1fa;
+  border-radius: 1rem;
+  color: #064663;
+  cursor: pointer;
+}
+.quick-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.quick-links svg {
+  width: 25px;
+  height: 25px;
+  fill: #bbe1fa;
+  cursor: pointer;
+}
+
+.add {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 1rem;
+  outline: none;
+  border: none;
+  background-color: #bbe1fa;
+  color: #041c32;
+  cursor: pointer;
+}
