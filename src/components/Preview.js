@@ -76,11 +76,9 @@ const Preview = props => {
       <div className={styles['custom-links']}>
         {customLinks.length !== 0 &&
           customLinks.map(el => (
-            <div key={el.title} className={styles.custom}>
-              <a target="_blank" rel="noreferrer" href={el.link}>
-                {el.title}
-              </a>
-            </div>
+            <a key={el.title} target="_blank" rel="noreferrer" href={el.link}>
+              <div className={styles.custom}>{el.title}</div>
+            </a>
           ))}
       </div>
     </div>

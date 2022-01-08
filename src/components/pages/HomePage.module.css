@@ -81,3 +81,8 @@
   background-color: #064663;
   color: #bbe1fa;
 }
+
+.search button:hover,
+.search button:active {
+  background-color: #041c32;
+}
