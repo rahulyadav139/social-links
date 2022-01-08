@@ -82,8 +82,8 @@ const Admin = props => {
       if (!res.ok) throw new Error('Something went wrong');
 
       const data = await res.json();
+
       setUserData(data);
-      console.log(data);
 
       if (data.quickLinks) {
         setQuickLinks(data.quickLinks);
@@ -158,7 +158,7 @@ const Admin = props => {
 
       <div className={styles.actions}>
         <header className={styles.header}>
-          <h2>{`Hi ${userData?.name.split(' ')[0]},`}</h2>
+          <h2>{`Hi ${userData && userData.name.split(' ')[0]},`}</h2>
           <button onClick={logoutHandler}>Logout</button>
         </header>
         <div className={styles['quick-links']}>

@@ -72,7 +72,7 @@ const SignIn = props => {
         dispatch(
           ModalActions.modalHandler({
             isModal: true,
-            message: 'Incorrect email and password!',
+            message: 'Incorrect email or password!',
             isRedirect: false,
           })
         );
