@@ -1,6 +1,6 @@
 import styles from './Form.module.css';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { AuthActions } from '../store/authSlice';
 import { useNavigate } from 'react-router-dom';
 import useInput from '../hooks/use-input';
@@ -8,11 +8,13 @@ import { textFormatter } from '../store/helper-functions.js';
 import { useState } from 'react';
 import LoadingSpinner from '../UI/LoadingSpinner';
 import { ModalActions } from '../store/modalSlice';
+import Modal from '../UI/Modal';
 
 const SignUp = props => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const isModal = useSelector(state => state.modal.isModal);
 
   const {
     value: firstName,
@@ -70,6 +72,12 @@ const SignUp = props => {
   const usernameClasses = usernameIsInvalid ? styles.invalid : '';
   const confirmPasswordClasses = confirmPasswordIsInvalid ? styles.invalid : '';
 
+  const preventSpaceInUsername = e => {
+    if (e.keyCode === 32) {
+      e.preventDefault();
+    }
+  };
+
   const submitHandler = async e => {
     e.preventDefault();
 
@@ -84,6 +92,7 @@ const SignUp = props => {
       !firstNameIsValid ||
       !lastNameIsValid ||
       !emailIsValid ||
+      !usernameIsValid ||
       !confirmPasswordIsValid
     )
       return;
@@ -116,6 +125,34 @@ const SignUp = props => {
     };
     try {
       setIsLoading(true);
+
+      const getRes = await fetch(
+        'https://social-links-291a6-default-rtdb.firebaseio.com/users.json'
+      );
+
+      if (!getRes.ok) throw new Error('Something went wrong!');
+
+      const getData = await getRes.json();
+
+      const getDataArray = Object.values(getData);
+
+      const findExistingUsername = getDataArray.find(
+        el => el.username === username
+      );
+
+      if (findExistingUsername) {
+        console.log('test');
+        setIsLoading(false);
+        dispatch(
+          ModalActions.modalHandler({
+            isModal: true,
+            message: 'Username already registered!',
+            isRedirect: false,
+          })
+        );
+
+        return;
+      }
       const res = await fetch(
         'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBWVm2J3rC0AH8VD3cxetF4PcC5ZwphT0s',
         {
@@ -126,6 +163,19 @@ const SignUp = props => {
           body: JSON.stringify(userCredentials),
         }
       );
+      if (res.status === 400) {
+        setIsLoading(false);
+        dispatch(
+          ModalActions.modalHandler({
+            isModal: true,
+            message: 'Email already registered!',
+            isRedirect: false,
+          })
+        );
+
+        return;
+      }
+      console.log(res);
 
       if (!res.ok) throw new Error('Something went wrong!');
 
@@ -196,6 +246,7 @@ const SignUp = props => {
         <input
           className={usernameClasses}
           value={username}
+          onKeyDown={preventSpaceInUsername}
           onChange={usernameChangeHandler}
           onBlur={usernameBlurHandler}
           type="text"
@@ -229,6 +280,7 @@ const SignUp = props => {
         <button type="submit">Submit</button>
       </div>
       {isLoading && <LoadingSpinner />}
+      {isModal && <Modal />}
     </form>
   );
 };

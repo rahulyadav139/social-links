@@ -54,7 +54,7 @@ const Admin = props => {
 
   const [customLinks, setCustomLinks] = useState([]);
   const [quickLinks, setQuickLinks] = useState([]);
-  const [name, setName] = useState('');
+  const [userData, setUserData] = useState('');
   const [quickLinkTitle, setQuickLinkTitle] = useState(null);
   const [editQuickLinks, setEditQuickLinks] = useState(false);
   const [addCustomLink, setAddCustomLink] = useState(false);
@@ -82,7 +82,8 @@ const Admin = props => {
       if (!res.ok) throw new Error('Something went wrong');
 
       const data = await res.json();
-      setName(data.name);
+      setUserData(data);
+      console.log(data);
 
       if (data.quickLinks) {
         setQuickLinks(data.quickLinks);
@@ -134,9 +135,21 @@ const Admin = props => {
   return (
     <div className={styles.interface}>
       <div className={styles.preview}>
+        <div className={styles.wrapper}>
+          <span className={styles.colored}>My Link: </span>
+          <a
+            className={styles['my-link']}
+            target="_blank"
+            rel="noreferrer"
+            href={`https://social-links-green.vercel.app/${userData.username}`}
+          >
+            {`social-links-green.vercel.app/${userData.username}`}
+          </a>
+        </div>
+
         <div className={styles.card}>
           <Preview
-            name={name}
+            name={userData.name}
             quickLinks={quickLinks}
             customLinks={customLinks}
           />
@@ -145,7 +158,7 @@ const Admin = props => {
 
       <div className={styles.actions}>
         <header className={styles.header}>
-          <h2>{`Hi ${name.split(' ')[0]},`}</h2>
+          <h2>{`Hi ${userData?.name.split(' ')[0]},`}</h2>
           <button onClick={logoutHandler}>Logout</button>
         </header>
         <div className={styles['quick-links']}>
