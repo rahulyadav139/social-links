@@ -44,7 +44,7 @@ const Preview = props => {
             <a
               target="_blank"
               rel="noreferrer"
-              href={`https://linkedin.com/${quickLinks.LinkedIn}`}
+              href={`https://linkedin.com/in/${quickLinks.LinkedIn}`}
             >
               <LinkedInIcon />
             </a>
