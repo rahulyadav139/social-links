@@ -1,3 +1,5 @@
+@import '../../index.css';
+
 .form {
   width: 400px;
   margin: auto;
@@ -7,12 +9,12 @@
   gap: 1rem;
   padding: 1rem;
   font-size: 1.5rem;
-  background-color: #064663;
+  background-color: var(--background-color-light);
   border-radius: 1rem;
 }
 .form label {
   margin-bottom: 0.5rem;
-  color: #bbe1fa;
+  color: var(--font-color);
 }
 .form input {
   padding: 0.5rem 1rem;
@@ -28,13 +30,13 @@
   width: 100%;
 }
 .form input:focus {
-  background-color: #bbe1fa;
+  background-color: var(--font-color);
 }
 .form input.invalid {
-  background-color: #ffcccb;
+  background-color: var(--error-color);
 }
 .form input.invalid:focus {
-  background-color: #ffcccb;
+  background-color: var(--error-color);
 }
 .buttons {
   display: flex;
@@ -44,8 +46,8 @@
 .buttons button {
   border: none;
   outline: none;
-  background-color: #bbe1fa;
-  color: #041c32;
+  background-color: var(--font-color);
+  color: var(--background-color-dark);
   font-size: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 1.1rem;

@@ -1,3 +1,4 @@
+@import '../index.css';
 .row {
   position: relative;
   padding: 0.5rem 1rem;
@@ -5,11 +6,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #064663;
+  background: var(--background-color-light);
   margin: 0.5rem auto;
 }
 .row h2 {
-  color: #bbe1fa;
+  color: var(--font-color);
 }
 .row button {
   position: absolute;
@@ -20,7 +21,7 @@
   padding: 0.5rem;
 }
 .row svg {
-  fill: #bbe1fa;
+  fill: var(--font-color);
   cursor: pointer;
   width: 20px;
   height: 20px;

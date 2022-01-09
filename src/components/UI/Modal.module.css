@@ -1,3 +1,4 @@
+@import '../../index.css';
 .backdrop {
   position: fixed;
   top: 0;
@@ -11,7 +12,7 @@
   position: absolute;
   width: 300px;
   padding: 1rem;
-  border: 1.5px solid #bbe1fa;
+  border: 1.5px solid var(--font-color);
   border-radius: 1rem;
   top: 100px;
   left: calc((100% - 300px) / 2);
@@ -19,15 +20,15 @@
   z-index: 101;
 }
 .modal p {
-  color: #041c32;
+  color: var(--background-color-dark);
 }
 .button {
   display: flex;
   justify-content: flex-end;
 }
 .button button {
-  background-color: #bbe1fa;
-  color: #041c32;
+  background-color: var(--font-color);
+  color: var(--background-color-dark);
   outline: none;
   border: none;
   padding: 0.5rem 1rem;

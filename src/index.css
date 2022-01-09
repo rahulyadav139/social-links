@@ -2,8 +2,10 @@
 
 :root {
   --font-color: #bbe1fa;
-  --background-color: #041c32;
-  --background-color-alt: #064663;
+  --background-color-dark: #041c32;
+  --background-color-light: #064663;
+  --highlight-color: rgba(253, 187, 45, 1);
+  --error-color: #ffcccb;
 }
 
 * {
@@ -13,7 +15,7 @@
   font-family: 'Josefin Sans', sans-serif;
 }
 body {
-  background-color: var(--background-color);
+  background-color: var(--background-color-dark);
 }
 
 a {

@@ -42,7 +42,9 @@ const HomePage = props => {
           <label>links /</label>
           <input ref={usernameRef} placeholder="username" type="text" />
         </div>
-        <button onClick={searchHandler}>search</button>
+        <button type="submit" onClick={searchHandler}>
+          search
+        </button>
       </div>
     </section>
   );

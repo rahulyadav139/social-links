@@ -1,13 +1,14 @@
+@import '../index.css';
+
 .preview {
   flex: 60%;
-  border: 1px solid red;
   padding: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .name {
-  color: #041c32;
+  color: var(--background-color-dark);
 }
 
 .screen {
@@ -44,7 +45,7 @@
 .links svg {
   width: 25px;
   height: 25px;
-  fill: #064663;
+  fill: var(--background-color-light);
   transition: all 0.2s ease-in-out;
 }
 .links svg:hover,
@@ -60,8 +61,8 @@
   width: 100%;
 }
 .custom {
-  background-color: #064663;
-  color: #bbe1fa;
+  background-color: var(--background-color-light);
+  color: var(--font-color);
   width: 100%;
   border-radius: 1rem;
   text-align: center;
