@@ -14,7 +14,7 @@ const Preview = props => {
       <div className={styles.image}>
         <img src={require('../Assets/brand-logo.png')} alt="" />
       </div>
-      <h3 className={styles.name}>{name}</h3>
+      <h2 className={styles.name}>{name}</h2>
 
       <div className={styles.links}>
         {quickLinks && quickLinks.Instagram && (

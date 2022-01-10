@@ -13,7 +13,7 @@ const HomePage = props => {
 
     if (!username) return;
 
-    navigate(`/${username}`);
+    navigate(`/${username.toLowerCase()}`);
   };
   return (
     <section className={styles.main}>
