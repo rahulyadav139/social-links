@@ -62,7 +62,7 @@ const UserPage = props => {
   return (
     <>
       {isLoading && <LoadingSpinner />}
-      {isUser ? (
+      {isUser && (
         <div className={styles.view}>
           <Preview
             name={userData.name}
@@ -70,8 +70,6 @@ const UserPage = props => {
             customLinks={userData.customLinks || []}
           />
         </div>
-      ) : (
-        ''
       )}
       {!isUser && !isLoading && <NoUserFound />}
     </>

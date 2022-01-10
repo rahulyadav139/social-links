@@ -56,7 +56,6 @@
 .custom {
   background-color: var(--background-color-light);
   color: var(--font-color);
-  /* width: 100%; */
   border-radius: 1rem;
   text-align: center;
   padding: 0.5rem;
