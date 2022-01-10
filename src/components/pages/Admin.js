@@ -59,6 +59,8 @@ const Admin = props => {
   const [editQuickLinks, setEditQuickLinks] = useState(false);
   const [addCustomLink, setAddCustomLink] = useState(false);
 
+  const [showPreview, setShowPreview] = useState(false);
+
   const authDetails = useSelector(state => state.auth);
   const transfer = authDetails.transfer;
 
@@ -132,10 +134,26 @@ const Admin = props => {
     navigate('/');
   };
 
+  const previewClasses = showPreview
+    ? `${styles.preview} ${styles.show}`
+    : `${styles.preview} ${styles.hide}`;
+  const actionsClasses = !showPreview
+    ? `${styles.actions} ${styles.show}`
+    : `${styles.actions} ${styles.hide}`;
+
+  const previewHandler = () => {
+    setShowPreview(prev => !prev);
+  };
   return (
     <div className={styles.interface}>
-      <div className={styles.preview}>
+      <div className={previewClasses}>
         <div className={styles.wrapper}>
+          <button
+            onClick={previewHandler}
+            className={`${styles.button} ${styles['btn-preview']}`}
+          >
+            Dashboard
+          </button>
           <span className={styles.colored}>My Link: </span>
           <a
             className={styles['my-link']}
@@ -156,11 +174,19 @@ const Admin = props => {
         </div>
       </div>
 
-      <div className={styles.actions}>
+      <div className={actionsClasses}>
         <header className={styles.header}>
           <h2>{`Hi ${userData && userData.name.split(' ')[0]},`}</h2>
           <button onClick={logoutHandler}>Logout</button>
         </header>
+
+        <button
+          onClick={previewHandler}
+          className={`${styles.button} ${styles['btn-preview']}`}
+        >
+          Preview
+        </button>
+
         <div className={styles['quick-links']}>
           {iconData.map(el => (
             <div
@@ -179,7 +205,7 @@ const Admin = props => {
           />
         )}
         {!addCustomLink && (
-          <button className={styles.add} onClick={setEditCustomLinkHandler}>
+          <button className={styles.button} onClick={setEditCustomLinkHandler}>
             Add More
           </button>
         )}

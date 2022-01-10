@@ -70,7 +70,7 @@
   cursor: pointer;
 }
 
-.add {
+.button {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   border-radius: 1rem;
@@ -79,4 +79,36 @@
   background-color: var(--font-color);
   color: var(--background-color-dark);
   cursor: pointer;
+}
+.btn-preview {
+  display: none;
+}
+@media only screen and (max-width: 40rem) {
+  .preview {
+    display: none;
+    justify-content: flex-start;
+    margin-top: 2rem;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .wrapper span {
+    display: block;
+    margin: auto;
+  }
+  .actions {
+    padding: 1.5rem;
+  }
+  .btn-preview {
+    display: block;
+  }
+  .hide {
+    display: none;
+  }
+  .show {
+    display: flex;
+  }
 }
