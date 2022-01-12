@@ -1,12 +1,19 @@
 import styles from './HomePage.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
+import { HeartIcon } from '../UI/icons';
 
 import brandImage from '../../Assets/brand-logo-transparent.png';
 import { Link } from 'react-router-dom';
 const HomePage = props => {
   const navigate = useNavigate();
   const usernameRef = useRef();
+
+  const enterToSearchHandler = e => {
+    if (e.keyCode === 13) {
+      searchHandler();
+    }
+  };
 
   const searchHandler = () => {
     const username = usernameRef.current.value;
@@ -40,11 +47,24 @@ const HomePage = props => {
       <div className={styles.search}>
         <div>
           <label>links /</label>
-          <input ref={usernameRef} placeholder="username" type="text" />
+          <input
+            onKeyDown={enterToSearchHandler}
+            ref={usernameRef}
+            placeholder="username"
+            type="text"
+          />
         </div>
-        <button type="submit" onClick={searchHandler}>
-          search
-        </button>
+        <button onClick={searchHandler}>search</button>
+        <div className={styles.promotion}>
+          Made with <HeartIcon /> by{' '}
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://social-links-green.vercel.app/rahulyadav"
+          >
+            Rahul Yadav
+          </a>
+        </div>
       </div>
     </section>
   );

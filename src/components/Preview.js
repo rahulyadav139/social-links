@@ -81,6 +81,12 @@ const Preview = props => {
             </a>
           ))}
       </div>
+
+      <h4 className={styles.promotion}>
+        <a href="https://social-links-green.vercel.app/">
+          Get Your Own Link Now{' '}
+        </a>
+      </h4>
     </div>
   );
 };

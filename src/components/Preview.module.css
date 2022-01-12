@@ -69,3 +69,10 @@
 .custom:active {
   transform: scale(0.98);
 }
+
+.promotion {
+  position: fixed;
+  bottom: 20px;
+  color: var(--background-color-dark);
+  text-decoration: underline;
+}
