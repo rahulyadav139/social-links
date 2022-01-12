@@ -137,7 +137,7 @@ const SignUp = props => {
       const getDataArray = Object.values(getData);
 
       const findExistingUsername = getDataArray.find(
-        el => el.username === username
+        el => el.username === username.toLowerCase()
       );
 
       if (findExistingUsername) {
@@ -197,7 +197,7 @@ const SignUp = props => {
           },
           body: JSON.stringify({
             name: `${textFormatter(firstName)} ${textFormatter(lastName)}`,
-            username,
+            username: username.toLowerCase()
           }),
         }
       );
