@@ -1,9 +1,9 @@
 
 <div align="center">
 
-# Palasio Bank
+# Social Links
 
-A simpler banking experience for a simpler life.
+Social Link is the portal to share your all social links at one place.
 
 ![Forks](https://img.shields.io/github/forks/rahulyadav139/social-links)
 ![Stars](https://img.shields.io/github/stars/rahulyadav139/social-links)
